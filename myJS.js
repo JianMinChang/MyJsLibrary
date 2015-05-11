@@ -1,7 +1,7 @@
 ﻿var myJS =  {};
 
 myJS.httpFun = myJS.prototype = {
-    
+    //取得QueryString
     QueryString: function (name) {
         var AllVars = window.location.search.substring(1);
         var Vars = AllVars.split("&");
@@ -15,7 +15,8 @@ myJS.httpFun = myJS.prototype = {
 };
 
 myJS.Valid = myJS.prototype = {
-
+    //驗證使用者輸入的內容 
+    
     validfun: function (value, patten, IsAllowEmpty) {
         var re = new RegExp(patten);
         if ((isNaN(value) && re.test(parseInt(value))) || re.test(value)) {
@@ -81,6 +82,7 @@ myJS.Valid = myJS.prototype = {
 
 myJS.DateFormat = myJS.prototype = {
 
+   //自訂輸出日期格式
     yyyy_dd_mm: function (date) {
         var date = new Date(date);
         return date.getUTCFullYear() + "/" + ((date.getUTCMonth() + 1) < 10 ? "0" + (date.getUTCMonth() + 1) : (date.getUTCMonth() + 1)) + "/" + date.getUTCDate();
@@ -96,7 +98,9 @@ myJS.DateFormat = myJS.prototype = {
 };
 
 myJS.AjaxForGet = myJS.prototype = function (StringURL, ActionSuccess,ActionFails) {
-    //Action 為
+    //StringURL 為進行Ajax 的目標URL
+    //ActionSuccess 為成功要做的function event；
+    //ActionFails 為失敗要做的function event；
     
     //這段引用別人的程式碼
     function creatRequestObj() {
